@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Main Account Page</title>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<header class="main-header">
+    <div class="container">
+        <a class="brand-logo" th:href="@{/}">
+            <img src="images/logo.jpg" alt="logo">
+        </a>
+        <nav class="main-nav">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/main}">Home</a></li>
+                <li><a th:href="@{/create_garden}">Garden</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Useful Info</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{/garden/how_to_germinate_seeds}">How to germinate your seeds</a>
+                        <a class="dropdown-item" href="#">Customize Garden</a>
+                    </div>
+                </li>
+
+                <li><a th:href="@{/about_us}">About Us</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="main-section"></div>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="container">
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#" class="social-link"><i class="bi bi-facebook"></i>Facebook</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-pinterest"></i>Pinterest</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-twitter"></i>Twitter</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-youtube"></i>Youtube</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-linkedin"></i>Linkedin</a></li>
+            </ul>
+        </nav>
+        <nav class="footer-nav">
+            <ul>
+                <li><a th:href="@{/contact}">Contact</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+
+
+</footer>
+</body>
+</html>

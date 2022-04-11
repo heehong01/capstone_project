@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+    <!-- INTERNAL CSS STYLING -->
+    <style>
+        img{
+            max-width: 30px;
+            max-height: 30px;
+        }
+
+        .form-center {
+            display:flex;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+<body class="full-height-grow">
+<!-- Navigation Bar -->
+<header class="main-header">
+    <div class="container">
+        <a class="brand-logo" th:href="@{/}">
+            <img src="images/logo.jpg" alt="logo">
+        </a>
+        <nav class="main-nav">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/main}">Home</a></li>
+                <li><a th:href="@{/create_garden}">Garden</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Useful Info</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{/garden/how_to_germinate_seeds}">How to germinate your seeds</a>
+                        <a class="dropdown-item" href="#">Customize Garden</a>
+                    </div>
+                </li>
+
+                <li><a th:href="@{/about_us}">About Us</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="main-section">
+    <h3 style="text-align: center">Contact Form</h3>
+
+    <div class="form-center">
+        <form class="form" action="#">
+            <div class="row">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            </div>
+            <div class="row">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            </div>
+
+            <div class="row">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                </select>
+
+            </div>
+
+            <div class="row">
+                <label for="subject">Subject</label>
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+            </div>
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+
+
+<footer class="main-footer">
+    <div class="container">
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#" class="social-link"><i class="bi bi-facebook"></i>Facebook</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-pinterest"></i>Pinterest</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-twitter"></i>Twitter</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-youtube"></i>Youtube</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-linkedin"></i>Linkedin</a></li>
+            </ul>
+        </nav>
+        <nav class="footer-nav">
+            <ul>
+                <li><a th:href="@{/contact}">Contact</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+
+
+</footer>
+
+</body>
+
+</html>

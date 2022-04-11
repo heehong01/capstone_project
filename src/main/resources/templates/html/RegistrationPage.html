@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+
+    <style>
+        img{
+            max-width: 30px;
+            max-height: 30px;
+        }
+    </style>
+</head>
+<body class="full-height-grow">
+
+<!-- Navigation Bar -->
+<header class="main-header">
+    <div class="container">
+        <a class="brand-logo" th:href="@{/}">
+            <img src="images/logo.jpg" alt="logo">
+        </a>
+        <nav class="main-nav">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/main}">Home</a></li>
+                <li><a th:href="@{/create_garden}">Garden</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Useful Info</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{/garden/how_to_germinate_seeds}">How to germinate your seeds</a>
+                        <a class="dropdown-item" href="#">Something here</a>
+                        <a class="dropdown-item" href="#">Another here</a>
+                        <a class="dropdown-item" href="#">Else here</a>
+                    </div>
+                </li>
+
+                <li><a th:href="@{/about_us}">About Us</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Main Body -->
+<section class="register-main-section main-section">
+    <div class="register-main-left">
+        <h1 class="join-text">Join the
+            <span class="accent-text">fun.</span>
+        </h1>
+    </div>
+    <div class="register-main-right">
+            <form class="register-form form" id="form" th:action="@{/registerUser}" th:object="${user}" method="POST">
+
+                <div class="input-group form-control">
+                    <label>First Name</label>
+                    <input type="text" th:field="*{firstName}" placeholder="John" id="firstName">
+                    <i class="bi bi-check-circle"></i>
+                    <i class="bi bi-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+                <div class="input-group form-control">
+                    <label>Last Name</label>
+                    <input type="text" th:field="*{lastName}" placeholder="Doe" id="lastName">
+                    <i class="bi bi-check-circle"></i>
+                    <i class="bi bi-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+                <div class="input-group form-control">
+                    <label>Email</label>
+                    <input type="text" th:field="*{email}" placeholder="johndoe01@email.org" id="email">
+                    <i class="bi bi-check-circle"></i>
+                    <i class="bi bi-exclamation-circle"></i>
+                    <small>Error Message</small>
+
+                </div>
+                <div class="input-group form-control">
+                    <label>Username</label>
+                    <input type="text" th:field="*{username}" placeholder="johndoe01" id="username">
+                    <i class="bi bi-check-circle"></i>
+                    <i class="bi bi-exclamation-circle"></i>
+                    <small>Error Message</small>
+
+                </div>
+                <div class="input-group form-control">
+                    <label>Password</label>
+                    <input type="password" th:field="*{password}" placeholder="abc123!" id="password">
+                    <i class="bi bi-check-circle"></i>
+                    <i class="bi bi-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+                <div class="input-group form-control">
+                    <label>Confirm Password</label>
+                    <input type="password" th:field="*{password2}" placeholder="abc123!" id="password2">
+                    <i class="bi bi-check-circle"></i>
+                    <i class="bi bi-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+
+                <div class="submit" >
+                   <button type="button" id="submitBtn">Submit</button>
+                </div>
+                <!-- INLINE STYLING -->
+                <div style="text-align: center;">
+                    <p>Already signed up? <a th:href="@{/login}">Login</a></p>
+                </div>
+            </form>
+    </div>
+
+
+</section>
+
+
+
+
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="container">
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#" class="social-link"><i class="bi bi-facebook"></i>Facebook</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-pinterest"></i>Pinterest</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-twitter"></i>Twitter</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-youtube"></i>Youtube</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-linkedin"></i>Linkedin</a></li>
+            </ul>
+        </nav>
+        <nav class="footer-nav">
+            <ul>
+                <li><a th:href="@{/contact}">Contact</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+
+
+</footer>
+
+<script type="text/javascript" th:src="@{/js/registrationFormValidation.js}"></script>
+</body>
+</html>
