@@ -4,6 +4,7 @@ package com.example.backend_capstone.jpa.enititymodels;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="garden")
@@ -19,18 +20,19 @@ public class Garden {
     @Column(name="house_type")
     private String houseType;
 
-    @OneToOne(targetEntity = GardenInfo.class)
-    @JoinColumn(name="garden_type", referencedColumnName = "garden_name")
+    @Column(name="garden_type")
     private String gardenType;
 
     @OneToMany(targetEntity = Seeds.class, cascade = {CascadeType.ALL})
     @JoinTable(name="seeds_to_plant",
-            joinColumns = @JoinColumn(name="seed_name"),
+            joinColumns = @JoinColumn(name="seed_id"),
             inverseJoinColumns = @JoinColumn(name="gardenId"))
     private List<Seeds> seedType;
 
     public Garden() {
+
         this.seedType = new ArrayList<>();
+        this.gardenName = "";
     }
 
     public Garden(long gardenId, String gardenName, String houseType, String gardenType, List<Seeds> seedType) {
@@ -79,5 +81,29 @@ public class Garden {
 
     public void setSeedType(List<Seeds> seedType) {
         this.seedType = seedType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Garden garden = (Garden) o;
+        return gardenId == garden.gardenId && Objects.equals(gardenName, garden.gardenName) && Objects.equals(houseType, garden.houseType) && Objects.equals(gardenType, garden.gardenType) && Objects.equals(seedType, garden.seedType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gardenId, gardenName, houseType, gardenType, seedType);
+    }
+
+    @Override
+    public String toString() {
+        return "Garden{" +
+                "gardenId=" + gardenId +
+                ", gardenName='" + gardenName + '\'' +
+                ", houseType='" + houseType + '\'' +
+                ", gardenType='" + gardenType + '\'' +
+                ", seedType=" + seedType +
+                '}';
     }
 }

@@ -61,4 +61,23 @@ public class UserController {
         return "html/UserList";
     }
 
+    @GetMapping("/showFormForUpdate/{id}")
+    public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+
+        // get user from the service
+        User user = userService.getUserById(id);
+
+        // set employee as a model attribute to pre-populate the form
+        model.addAttribute("user", user);
+        return "html/UpdateUser";
+    }
+
+    @GetMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable(value = "id") long id) {
+
+        // call delete employee method
+        this.userService.deleteUserById(id);
+        return "redirect:/UserList";
+    }
+
 }

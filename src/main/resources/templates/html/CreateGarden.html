@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/CreateGarden.css">
+    <style>
+        img{
+            max-width: 30px;
+            max-height: 30px;
+        }
+    </style>
 </head>
 <body class="full-height-grow">
 <!-- Navigation Bar -->
@@ -39,7 +45,7 @@
 
 <!-- Main Body -->
 <section class="main-section">
-    <form id="regForm" action="">
+    <form id="regForm" th:action="@{/create_garden}" th:object="${garden}" method="post">
 
         <h1>Customize your Garden:</h1>
 
@@ -47,31 +53,27 @@
         <div class="tab">What type of house do you live in?:
             <p>
                 <label>House </label>
-                <input name="houseType" type="radio"></p>
+                <input name="houseType" type="radio" value="House" th:field="*{houseType}"></p>
             <p><label>Apartment</label>
-                <input name="houseType" type="radio"></p>
+                <input name="houseType" type="radio" value="Apartment" th:field="*{houseType}"></p>
         </div>
 
         <div class="tab">What type of Garden do you want to use?:
             <p><label>Raised Bed</label>
-                <input name="gardenType"  type="radio" ></p>
+                <input name="gardenType"  type="radio" value="Raised Bed" th:field="*{gardenType}"></p>
             <p><label>Hydroponics</label>
-                <input name="gardenType" type="radio" ></p>
+                <input name="gardenType" type="radio" value="Hydroponics" th:field="*{gardenType}"></p>
             <p><label>Container</label>
-                <input name="gardenType" type="radio"></p>
+                <input name="gardenType" type="radio" value="Container" th:field="*{gardenType}"></p>
             <p><label>Microgreens</label>
-                <input name="gardenType" type="radio"></p>
+                <input name="gardenType" type="radio" value="Microgreens" th:field="*{gardenType}"></p>
         </div>
 
         <div class="tab">What kind of plants do you want to plant:
-            <p><label>Tomato</label>
-                <input name="plantsToPlant" type="checkbox" value="Tomato"></p>
-            <p><label>Zucchini</label>
-                <input name="plantsToPlant" type="checkbox" value="Zucchini"></p>
-            <p><label>Basil</label>
-                <input name="plantsToPlant" type="checkbox" value="Basil"></p>
-            <p><label>Green Onion</label>
-                <input name="plantsToPlant" type="checkbox" value="Green Onion"></p>
+            <div th:each="seed, itemList: ${seeds}">
+                <p th:text="${seed.seedName}"></p>
+                <input name="plantsToPlant" type="checkbox" th:name="'ids['+${itemList.index}+']'" th:value="${seed.seedId}">
+            </div>
         </div>
 
         <div style="overflow:auto;">

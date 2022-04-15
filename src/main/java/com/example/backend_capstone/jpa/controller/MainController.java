@@ -29,10 +29,5 @@ public class MainController {
     public String showContactUsPage(){
         return "html/Contact";
     }
-
-    @GetMapping("/create_garden")
-    public String showCreateGardenPage(){
-        return "html/CreateGarden";
-    }
 }
 
