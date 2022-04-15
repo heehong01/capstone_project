@@ -47,7 +47,6 @@ public class GardenController {
 
         seeds.getIds().removeIf(Objects::isNull);
         List<Seeds> seedsList = seedService.getAllSeeds(seeds.getIds());
-        System.out.println(seedsList.toString());
         garden.setSeedType(seedsList);
         gardenService.saveGarden(garden);
         return "redirect:/GardenList";
