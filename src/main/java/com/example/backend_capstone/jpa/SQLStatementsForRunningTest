@@ -1,0 +1,36 @@
+DROP DATABASE cityscapegarden;
+CREATE DATABASE CITYSCAPEGARDEN;
+
+USE cityscapegarden;
+
+
+INSERT INTO Seeds values (1, ' Perhaps the most popular and widely used culinary herb. It is a tender annual,
+aromatic plant with a spicy odor and flavor.', 'basil');
+INSERT INTO Seeds values (2,'This particular herb can be referred to by two names depending upon which part is
+harvested and used.', 'cilantro');
+INSERT INTO Seeds values (3, 'Garlic is a member of the onion family. It grows to about 15-18 inches tall and has
+flat leaves much like leek.', 'garlic');
+INSERT INTO Seeds values (4,'Parsley is a hardy, biennial that is grown and treated like an annual. It is the
+most widely grown herb for both garnish and flavoring.', 'parsley');
+
+INSERT INTO Seeds values (5, 'Rosemary is a perennial evergreen shrub in warmer growing zones (zone 8 and above).', 'rosemary');
+
+INSERT INTO Seeds values(6,'Thyme is a low growing (6-12 inches tall) to almost prostrate, wiry stemmed perennial. Stems
+ are stiff and woody and leaves are small, oval and gray-green in color.seed_names', 'thyme');
+
+
+ use cityscapegarden;
+
+ SELECT * FROM garden;
+ SELECT * FROM seeds;
+
+ SELECT * FROM seeds_to_plant;
+ SELECT * FROM garden_info;
+
+ USE cityscapegarden;
+
+
+ INSERT INTO garden_info values(1, 'this describes the garden type', 'Raised Bed');
+ INSERT INTO garden_info values(2, 'this describes the garden type', 'Hydroponics');
+ INSERT INTO garden_info values(3, 'this describes the garden type', 'Container');
+ INSERT INTO garden_info values(4, 'this describes the garden type', 'Microgreens');
