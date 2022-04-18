@@ -59,9 +59,9 @@
         </div>
 
         <div class="tab">What type of Garden do you want to use?:
-            <div th:each="name : ${gardenInfo}">
+            <div th:each="name, index : ${gardenInfo}">
                 <p th:text="${name.gardenName}"></p>
-                <input type="radio" th:value="${name.gardenNameId}">
+                <input type="radio" th:name="gardenInfoId" th:value="${name.gardenNameId}">
             </div>
         </div>
 

@@ -49,13 +49,17 @@ public class GardenController {
         if (bindingResult.hasErrors()) {
             return "html/CreateGarden";
         }
-        System.out.println(gardenInfo);
-        System.out.println(garden);
+
+        GardenInfo gardenTypeValue = gardenInfoService.getGardenInfoById(gardenInfo.getGardenInfoId());
+
+        garden.setGardenType(gardenTypeValue);
 
         seeds.getIds().removeIf(Objects::isNull);
         List<Seeds> seedsList = seedService.getAllSeeds(seeds.getIds());
         garden.setSeedType(seedsList);
         gardenService.saveGarden(garden);
+        //Fetch login user and save garden to user
+        //Save user
         return "redirect:/GardenList";
     }
 

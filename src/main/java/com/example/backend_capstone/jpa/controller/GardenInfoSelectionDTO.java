@@ -1,19 +1,22 @@
 package com.example.backend_capstone.jpa.controller;
 
 public class GardenInfoSelectionDTO {
-    private long ids;
+    private Long gardenInfoId;
 
-    public GardenInfoSelectionDTO(long ids) {
-        this.ids = ids;
+    public GardenInfoSelectionDTO(Long gardenInfoId) {
+        this.gardenInfoId = gardenInfoId;
     }
 
-    public long getIds() {
-        return ids;
+    public Long getGardenInfoId() {
+        return gardenInfoId;
     }
 
-    public void setIds(long ids) {
-        this.ids = ids;
+    public void setGardenInfoId(Long gardenInfoId) {
+        this.gardenInfoId = gardenInfoId;
     }
+
+
+
 
 
 

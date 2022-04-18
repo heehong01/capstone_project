@@ -20,7 +20,7 @@ public class Garden {
     @Column(name="house_type")
     private String houseType;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity =GardenInfo.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "garden_type_id", referencedColumnName = "garden_name_id")
     private GardenInfo gardenType;
 
