@@ -24,7 +24,7 @@ public class Garden {
     @JoinColumn(name = "garden_type_id", referencedColumnName = "garden_name_id")
     private GardenInfo gardenType;
 
-    @OneToMany(targetEntity = Seeds.class, cascade = {CascadeType.ALL})
+    @ManyToMany(targetEntity = Seeds.class, cascade = {CascadeType.ALL})
     @JoinTable(name="seeds_to_plant",
             joinColumns = @JoinColumn(name="seed_id"),
             inverseJoinColumns = @JoinColumn(name="gardenId"))
