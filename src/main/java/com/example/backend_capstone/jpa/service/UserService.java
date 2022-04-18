@@ -13,4 +13,5 @@ public interface UserService {
     void deleteUserById(long userId);
     void saveGardenToUser(long user_id, Garden garden);
     List<Garden> getGardenByUser(long userId);
+
 }

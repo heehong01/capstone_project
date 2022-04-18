@@ -65,4 +65,5 @@ public class UserServiceImpl implements UserService{
         User user = getUserById(userId);
         return user.getUserGardens();
     }
+    
 }
