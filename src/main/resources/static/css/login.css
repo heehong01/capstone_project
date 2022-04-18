@@ -104,7 +104,7 @@ body{
     visibility: visible;
 }
 
-.form button {
+.form #login-submit {
     background-color: #184D47;
     border: 2px solid #184D47;
     color: white;
@@ -116,7 +116,7 @@ body{
     border-radius: 5px;
 }
 
-.form button:hover{
+.form #login-submit:hover{
     background-color: #EEBB4D;
 }
 

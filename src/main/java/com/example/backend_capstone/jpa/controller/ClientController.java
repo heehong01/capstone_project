@@ -1,12 +1,11 @@
 package com.example.backend_capstone.jpa.controller;
 
-import com.example.backend_capstone.jpa.enititymodels.User;
-import com.example.backend_capstone.jpa.service.UserService;
+import com.example.backend_capstone.jpa.enititymodels.Client;
+import com.example.backend_capstone.jpa.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,35 +14,35 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
-public class UserController {
+public class ClientController {
 
 
-    private UserService userService;
+    private ClientService clientService;
 
     @Autowired
-    public UserController(UserService userService){
-        this.userService = userService;
+    public ClientController(ClientService clientService){
+        this.clientService = clientService;
     }
 
 //SHOW NEW EMPLOYEE FORM
     @GetMapping("/registerForm")
     public String showRegistrationForm(Model model) {
         // create model attribute to bind form data
-        User user = new User();
-        model.addAttribute("user", user);
+        Client client = new Client();
+        model.addAttribute("user", client);
         return "html/RegistrationPage";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/Userlogin")
     public String showLoginForm(Model model) {
         // create model attribute to bind form data
-        User user = new User();
-        model.addAttribute("user", user);
+        Client client = new Client();
+        model.addAttribute("user", client);
         return "html/LoginPage";
     }
 //SAVE EMPLOYEE
     @PostMapping("/registerUser")
-    public String saveEmployee(@ModelAttribute("user") @Valid User user,
+    public String saveEmployee(@ModelAttribute("user") @Valid Client client,
                                BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
@@ -51,13 +50,13 @@ public class UserController {
         }
 
         // save employee to database
-        userService.saveUser(user);
+        clientService.saveUser(client);
         return "redirect:/UserList";
     }
 
     @GetMapping("/UserList")
     public String getAllEmployees(Model model) {
-        model.addAttribute("listUser", userService.getAllUsers());
+        model.addAttribute("listUser", clientService.getAllUsers());
         return "html/UserList";
     }
 
@@ -65,10 +64,10 @@ public class UserController {
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
         // get user from the service
-        User user = userService.getUserById(id);
+        Client client = clientService.getUserById(id);
 
         // set employee as a model attribute to pre-populate the form
-        model.addAttribute("user", user);
+        model.addAttribute("user", client);
         return "html/UpdateUser";
     }
 
@@ -76,7 +75,7 @@ public class UserController {
     public String deleteUser(@PathVariable(value = "id") long id) {
 
         // call delete employee method
-        this.userService.deleteUserById(id);
+        this.clientService.deleteUserById(id);
         return "redirect:/UserList";
     }
 

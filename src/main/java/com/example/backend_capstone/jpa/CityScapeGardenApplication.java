@@ -1,10 +1,10 @@
 package com.example.backend_capstone.jpa;
 
 import com.example.backend_capstone.jpa.controller.GardenController;
-import com.example.backend_capstone.jpa.controller.UserController;
+import com.example.backend_capstone.jpa.controller.ClientController;
 import com.example.backend_capstone.jpa.controller.MainController;
 import com.example.backend_capstone.jpa.service.GardenService;
-import com.example.backend_capstone.jpa.service.UserService;
+import com.example.backend_capstone.jpa.service.ClientService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -26,13 +26,13 @@ public class CityScapeGardenApplication {
             System.out.println("gardenController = " + gardenController);
         }
 
-        UserService userService = applicationContext.getBean(UserService.class);
-        if(userService != null){
-            System.out.println("userService = " + userService);
+        ClientService clientService = applicationContext.getBean(ClientService.class);
+        if(clientService != null){
+            System.out.println("userService = " + clientService);
         }
-        UserController userController = applicationContext.getBean(UserController.class);
-        if(userController != null){
-            System.out.println("userController = " + userController);
+        ClientController clientController = applicationContext.getBean(ClientController.class);
+        if(clientController != null){
+            System.out.println("userController = " + clientController);
         }
         MainController mainController = applicationContext.getBean(MainController.class);
     }

@@ -72,8 +72,6 @@ function validEmail() {
     const emailValue = email.value.trim();
     if(emailValue === '') {
         return setErrorFor(email, 'Email cannot be blank');
-    } else if (!isEmail(emailValue)) {
-        return setErrorFor(email, 'Not a valid email');
     } else {
         return setSuccessFor(email);
     }
@@ -112,6 +110,3 @@ function setSuccessFor(input) {
     return true;
 }
 
-function isEmail(email) {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}

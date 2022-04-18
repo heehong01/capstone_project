@@ -2,11 +2,11 @@ const form = document.getElementById("form");
 const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    checkInputs();
+const submitBtn = document.getElementById('login-submit')
+submitBtn.addEventListener('click', e => {
+    if(checkInputs()){
+        form.submit();
+    }
 });
 
 function checkInputs() {

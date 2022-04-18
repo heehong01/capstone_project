@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "client")
+public class Client {
     @Id
-    @Column(name="user_id", nullable = false)
+    @Column(name="client_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userId;
+    private Long clientId;
 
     @NotNull
     @Column(name="first_name")
@@ -40,12 +40,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name="user_id"))
     private List<Garden> userGardens;
 
-    public User(){
+    public Client(){
         this.userGardens = new ArrayList<>();
     }
 
-    public User(long userId, String firstName, String lastName, String username, String password, String password2, String email, List<Garden> userGardens) {
-        this.userId = userId;
+    public Client(Long clientId, String firstName, String lastName, String username, String password, String password2, String email, List<Garden> userGardens) {
+        this.clientId = clientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -55,12 +55,12 @@ public class User {
         this.userGardens = userGardens;
     }
 
-    public long getUserId() {
-        return userId;
+    public Long getClientId() {
+        return clientId;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
     }
 
     public String getFirstName() {
@@ -119,3 +119,5 @@ public class User {
         this.userGardens = userGardens;
     }
 }
+
+

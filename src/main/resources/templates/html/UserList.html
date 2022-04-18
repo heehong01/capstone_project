@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
     <meta charset="ISO-8859-1">
@@ -61,16 +62,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${listUser}">
-            <td th:text="${user.userId}"></td>
-            <td th:text="${user.firstName}"></td>
-            <td th:text="${user.lastName}"></td>
-            <td th:text="${user.email}"></td>
-            <td th:text="${user.username}"></td>
-            <td th:text="${user.password}"></td>
-            <td th:text="${user.password2}"></td>
-            <td> <a th:href="@{/showFormForUpdate/{id}(id=${user.userId})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/deleteUser/{id}(id=${user.userId})}" class="btn btn-danger">Delete</a>
+        <tr th:each="client : ${listUser}">
+            <td th:text="${client.userId}"></td>
+            <td th:text="${client.firstName}"></td>
+            <td th:text="${client.lastName}"></td>
+            <td th:text="${client.email}"></td>
+            <td th:text="${client.username}"></td>
+            <td th:text="${client.password}"></td>
+            <td th:text="${client.password2}"></td>
+            <td> <a th:href="@{/showFormForUpdate/{id}(id=${client.userId})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteUser/{id}(id=${client.userId})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>

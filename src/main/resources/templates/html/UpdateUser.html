@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <title>Update User</title>
@@ -53,7 +54,7 @@
         </h1>
     </div>
     <div class="register-main-right">
-        <form class="register-form form" id="form" th:action="@{/registerUser}" th:object="${user}" method="POST">
+        <form class="register-form form" id="form" th:action="@{/registerUser}" th:object="${client}" method="POST">
             <!-- Add hidden form field to handle update -->
             <input type="hidden" th:field="*{userId}" />
             <div class="input-group form-control">
