@@ -61,8 +61,10 @@
             <td th:text="${garden.gardenId}"></td>
             <td th:text="${garden.gardenName}"></td>
             <td th:text="${garden.houseType}"></td>
-            <td th:text="${garden.gardenType}"></td>
-            <td th:each="seed : ${garden.seedType}" th:text="${seed.seedName}"></td>
+            <td th:text="${garden.gardenType.gardenName}"></td>
+            <td th:each="seed : ${garden.seedType}" >
+                <li th:text="${seed.seedName}"></li>
+            </td>
             <td> <a href="#" class="btn btn-primary">Update</a>
                 <a href="#" class="btn btn-danger">Delete</a>
             </td>

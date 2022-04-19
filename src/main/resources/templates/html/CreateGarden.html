@@ -60,14 +60,10 @@
         </div>
 
         <div class="tab">What type of Garden do you want to use?:
-            <p><label>Raised Bed</label>
-                <input name="gardenType"  type="radio" value="Raised Bed" th:field="*{gardenType}"></p>
-            <p><label>Hydroponics</label>
-                <input name="gardenType" type="radio" value="Hydroponics" th:field="*{gardenType}"></p>
-            <p><label>Container</label>
-                <input name="gardenType" type="radio" value="Container" th:field="*{gardenType}"></p>
-            <p><label>Microgreens</label>
-                <input name="gardenType" type="radio" value="Microgreens" th:field="*{gardenType}"></p>
+            <div th:each="name, index : ${gardenInfo}">
+                <p th:text="${name.gardenName}"></p>
+                <input type="radio" th:name="gardenInfoId" th:value="${name.gardenNameId}">
+            </div>
         </div>
 
         <div class="tab">What kind of plants do you want to plant:
@@ -75,6 +71,12 @@
                 <p th:text="${seed.seedName}"></p>
                 <input name="plantsToPlant" type="checkbox" th:name="'ids['+${itemList.index}+']'" th:value="${seed.seedId}">
             </div>
+        </div>
+        <div class="tab">What do you want to name your Garden:
+            <p>
+                <label>Garden Name</label>
+                <input type="text" th:field="*{gardenName}">
+            </p>
         </div>
 
         <div style="overflow:auto;">
@@ -86,6 +88,7 @@
 
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
