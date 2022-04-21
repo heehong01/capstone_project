@@ -26,8 +26,16 @@ Add some description of the app (one or two paragraph)
     - Implementation of Spring Security
     - Troubleshooting issues with Spring Security with JS and CSS
     - Troubleshooting issues with Spring Security Registration Page
+  
 - 4/19: (75% completed)
   - Troubleshooting GitHub issues with branches not merged properly to master before branching again
+  
+- 4/20 (76% Completed)
+  - Troubleshooting issues with a CRUD function not working with Spring Security
+  
+- 4/21: (78% Completed)
+  - Turned off spring security and implemented admin pages
+    
 
 
 ### Login
@@ -72,3 +80,9 @@ Add some description of the app (one or two paragraph)
 - As a admin, I want ..., so that ...
 
 - As a admin, I want ..., so that ...
+
+- Implementation of user to check if they had tried to create this garden in their environment
+- Implementation of user to have a description/review of the garden that they have tried
+- Implementation of Mobile option 
+- Implementation of Mobile Application
+- 
