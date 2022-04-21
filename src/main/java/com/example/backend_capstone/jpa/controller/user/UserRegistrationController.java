@@ -1,5 +1,8 @@
-package com.example.backend_capstone.jpa.user;
+package com.example.backend_capstone.jpa.controller.user;
 
+import com.example.backend_capstone.jpa.DTO.UserRegistrationDTO;
+import com.example.backend_capstone.jpa.user.User;
+import com.example.backend_capstone.jpa.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,8 +22,8 @@ public class UserRegistrationController {
     private UserService userService;
 
     @ModelAttribute("user")
-    public UserRegistrationDto userRegistrationDto() {
-        return new UserRegistrationDto();
+    public UserRegistrationDTO userRegistrationDto() {
+        return new UserRegistrationDTO();
     }
 
     @GetMapping
@@ -29,7 +32,7 @@ public class UserRegistrationController {
     }
 
     @PostMapping
-    public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result){
+    public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDTO userDto, BindingResult result){
 
         User existing = userService.findByEmail(userDto.getEmail());
         if (existing != null){

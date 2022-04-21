@@ -1,4 +1,4 @@
-package com.example.backend_capstone.jpa.controller;
+package com.example.backend_capstone.jpa.DTO;
 
 public class GardenInfoSelectionDTO {
     private Long gardenInfoId;
@@ -14,10 +14,6 @@ public class GardenInfoSelectionDTO {
     public void setGardenInfoId(Long gardenInfoId) {
         this.gardenInfoId = gardenInfoId;
     }
-
-
-
-
 
 
 }

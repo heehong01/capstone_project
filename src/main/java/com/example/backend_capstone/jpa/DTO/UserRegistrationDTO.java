@@ -1,4 +1,4 @@
-package com.example.backend_capstone.jpa.user;
+package com.example.backend_capstone.jpa.DTO;
 
 import com.example.backend_capstone.jpa.security.FieldMatch;
 
@@ -10,7 +10,7 @@ import javax.validation.constraints.NotEmpty;
         @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),
         //@FieldMatch(first = "email", second = "confirmEmail", message = "The email fields must match")
 })
-public class UserRegistrationDto {
+public class UserRegistrationDTO {
 
     @NotEmpty
     private String firstName;

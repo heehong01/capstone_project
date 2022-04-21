@@ -1,4 +1,4 @@
-package com.example.backend_capstone.jpa.service;
+package com.example.backend_capstone.jpa.service.Client;
 
 import com.example.backend_capstone.jpa.enititymodels.Client;
 import com.example.backend_capstone.jpa.enititymodels.Garden;

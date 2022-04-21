@@ -1,14 +1,15 @@
-package com.example.backend_capstone.jpa.service;
+package com.example.backend_capstone.jpa.service.Seed;
 
 import com.example.backend_capstone.jpa.enititymodels.Seeds;
 import com.example.backend_capstone.jpa.repository.SeedRepository;
+import com.example.backend_capstone.jpa.service.Seed.SeedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class SeedServiceImpl implements SeedService{
+public class SeedServiceImpl implements SeedService {
     private SeedRepository seedRepository;
 
     @Autowired

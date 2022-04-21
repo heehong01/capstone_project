@@ -1,8 +1,10 @@
-package com.example.backend_capstone.jpa.service;
+package com.example.backend_capstone.jpa.service.Client;
 
 import com.example.backend_capstone.jpa.enititymodels.Client;
 import com.example.backend_capstone.jpa.enititymodels.Garden;
 import com.example.backend_capstone.jpa.repository.ClientRepository;
+import com.example.backend_capstone.jpa.service.Client.ClientNotFoundException;
+import com.example.backend_capstone.jpa.service.Client.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

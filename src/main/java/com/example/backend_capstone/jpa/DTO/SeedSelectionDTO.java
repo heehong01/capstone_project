@@ -1,4 +1,4 @@
-package com.example.backend_capstone.jpa.controller;
+package com.example.backend_capstone.jpa.DTO;
 
 import java.util.List;
 

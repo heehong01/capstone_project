@@ -1,9 +1,10 @@
-package com.example.backend_capstone.jpa.service;
+package com.example.backend_capstone.jpa.service.Garden;
 
 import com.example.backend_capstone.jpa.enititymodels.Garden;
 import com.example.backend_capstone.jpa.repository.GardenRepository;
+import com.example.backend_capstone.jpa.service.Garden.GardenNotFoundException;
+import com.example.backend_capstone.jpa.service.Garden.GardenService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
