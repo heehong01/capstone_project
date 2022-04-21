@@ -1,12 +1,14 @@
 package com.example.backend_capstone.jpa.controller;
 
 
+import com.example.backend_capstone.jpa.DTO.GardenInfoSelectionDTO;
+import com.example.backend_capstone.jpa.DTO.SeedSelectionDTO;
 import com.example.backend_capstone.jpa.enititymodels.Garden;
 import com.example.backend_capstone.jpa.enititymodels.GardenInfo;
 import com.example.backend_capstone.jpa.enititymodels.Seeds;
-import com.example.backend_capstone.jpa.service.GardenInfoService;
-import com.example.backend_capstone.jpa.service.GardenService;
-import com.example.backend_capstone.jpa.service.SeedService;
+import com.example.backend_capstone.jpa.service.GardenInfo.GardenInfoService;
+import com.example.backend_capstone.jpa.service.Garden.GardenService;
+import com.example.backend_capstone.jpa.service.Seed.SeedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

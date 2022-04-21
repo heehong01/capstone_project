@@ -1,7 +1,7 @@
 package com.example.backend_capstone.jpa.controller;
 
 import com.example.backend_capstone.jpa.enititymodels.Client;
-import com.example.backend_capstone.jpa.service.ClientService;
+import com.example.backend_capstone.jpa.service.Client.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
