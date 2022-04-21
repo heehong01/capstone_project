@@ -5,7 +5,12 @@ import javax.persistence.*;
 @Entity
 @Table(name="garden_info")
 public class GardenInfo {
+
     @Id
+    @Column(name = "garden_name_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long gardenNameId;
+
     @Column(name="garden_name")
     private String gardenName;
 
@@ -14,11 +19,19 @@ public class GardenInfo {
 
     public GardenInfo(){
     }
-    public GardenInfo( String gardenName, String gardenDescription) {
+    public GardenInfo(Long gardenNameId, String gardenName, String gardenDescription) {
+        this.gardenNameId = gardenNameId;
         this.gardenName = gardenName;
         this.gardenDescription = gardenDescription;
     }
 
+    public Long getGardenNameId() {
+        return gardenNameId;
+    }
+
+    public void setGardenNameId(Long gardenNameId) {
+        this.gardenNameId = gardenNameId;
+    }
 
     public String getGardenName() {
         return gardenName;

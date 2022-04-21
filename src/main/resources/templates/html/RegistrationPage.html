@@ -55,7 +55,7 @@
         </h1>
     </div>
     <div class="register-main-right">
-        <div th:if="${param.success}">
+        <div th:if="${param.success}" >
             <div class="alert alert-info">You've successfully registered
                 to our awesome app!</div>
         </div>
@@ -109,6 +109,11 @@
                     <i class="bi bi-exclamation-circle"></i>
                     <small>Error Message</small>
                 </div>
+            <div class="input-group form-control">
+                <input id="terms" type="checkbox" th:field="*{terms}" />   <label
+                    class="control-label" for="terms"> I agree with the <a
+                    href="#">terms and conditions</a> for Registration.
+            </div>
 
                 <div class="submit" >
                    <button type="submit" class="btn" id="submitBtn">Register</button>

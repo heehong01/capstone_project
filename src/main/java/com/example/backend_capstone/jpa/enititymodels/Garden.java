@@ -14,16 +14,17 @@ public class Garden {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long gardenId;
 
-    @Column(name = "garden_name")
+    @Column(name="garden_name")
     private String gardenName;
 
     @Column(name="house_type")
     private String houseType;
 
-    @Column(name="garden_type")
-    private String gardenType;
+    @ManyToOne(targetEntity =GardenInfo.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "garden_type_id", referencedColumnName = "garden_name_id")
+    private GardenInfo gardenType;
 
-    @OneToMany(targetEntity = Seeds.class, cascade = {CascadeType.ALL})
+    @ManyToMany(targetEntity = Seeds.class, cascade = {CascadeType.ALL})
     @JoinTable(name="seeds_to_plant",
             joinColumns = @JoinColumn(name="seed_id"),
             inverseJoinColumns = @JoinColumn(name="gardenId"))
@@ -35,7 +36,7 @@ public class Garden {
         this.gardenName = "";
     }
 
-    public Garden(long gardenId, String gardenName, String houseType, String gardenType, List<Seeds> seedType) {
+    public Garden(long gardenId, String gardenName, String houseType, GardenInfo gardenType, List<Seeds> seedType) {
         this.gardenId = gardenId;
         this.gardenName = gardenName;
         this.houseType = houseType;
@@ -67,11 +68,11 @@ public class Garden {
         this.houseType = houseType;
     }
 
-    public String getGardenType() {
+    public GardenInfo getGardenType() {
         return gardenType;
     }
 
-    public void setGardenType(String gardenType) {
+    public void setGardenType(GardenInfo gardenType) {
         this.gardenType = gardenType;
     }
 

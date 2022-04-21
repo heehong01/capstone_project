@@ -2,7 +2,9 @@ package com.example.backend_capstone.jpa.controller;
 
 
 import com.example.backend_capstone.jpa.enititymodels.Garden;
+import com.example.backend_capstone.jpa.enititymodels.GardenInfo;
 import com.example.backend_capstone.jpa.enititymodels.Seeds;
+import com.example.backend_capstone.jpa.service.GardenInfoService;
 import com.example.backend_capstone.jpa.service.GardenService;
 import com.example.backend_capstone.jpa.service.SeedService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +21,13 @@ import java.util.Objects;
 public class GardenController {
     private GardenService gardenService;
     private SeedService seedService;
+    private GardenInfoService gardenInfoService;
 
     @Autowired
-    public GardenController(GardenService gardenService, SeedService seedService){
+    public GardenController(GardenService gardenService, SeedService seedService, GardenInfoService gardenInfoService){
         this.gardenService = gardenService;
         this.seedService = seedService;
+        this.gardenInfoService = gardenInfoService;
     }
 
 
@@ -34,21 +38,28 @@ public class GardenController {
         Garden garden = new Garden();
         model.addAttribute("garden", garden);
         model.addAttribute("seeds", seedService.getAllSeeds());
+        model.addAttribute("gardenInfo", gardenInfoService.getAllGardenInfo());
         return "html/CreateGarden";
     }
 
 
     @PostMapping("/create_garden")
-    public String saveGarden(@ModelAttribute("garden") @Valid Garden garden, @ModelAttribute("seeds") SeedSelectionDTO seeds, BindingResult bindingResult) {
+    public String saveGarden(@ModelAttribute("garden") @Valid Garden garden, @ModelAttribute("gardenInfo") GardenInfoSelectionDTO gardenInfo, @ModelAttribute("seeds") SeedSelectionDTO seeds, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "html/CreateGarden";
         }
 
+        GardenInfo gardenTypeValue = gardenInfoService.getGardenInfoById(gardenInfo.getGardenInfoId());
+
+        garden.setGardenType(gardenTypeValue);
+
         seeds.getIds().removeIf(Objects::isNull);
         List<Seeds> seedsList = seedService.getAllSeeds(seeds.getIds());
         garden.setSeedType(seedsList);
         gardenService.saveGarden(garden);
+        //Fetch login user and save garden to user
+        //Save user
         return "redirect:/GardenList";
     }
 

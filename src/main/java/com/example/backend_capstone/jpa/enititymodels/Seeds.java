@@ -8,24 +8,17 @@ import java.util.Objects;
 @Entity
 @Table(name="seeds")
 public class Seeds {
-    public Long getSeedId() {
-        return seedId;
-    }
-
-    public void setSeedId(Long seedId) {
-        this.seedId = seedId;
-    }
 
     @Id
-   @Column(name = "seed_id")
+    @Column(name = "seed_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long seedId;
+    private Long seedId;
 
-   @Column(name="seed_name")
-   private String seedName;
+    @Column(name="seed_name")
+    private String seedName;
 
-   @Column(name="seed_description")
-   private String seedDescription;
+    @Column(name="seed_description")
+    private String seedDescription;
 
     public Seeds(){
 
@@ -35,6 +28,14 @@ public class Seeds {
         this.seedId = seedId;
         this.seedName = seedName;
         this.seedDescription = seedDescription;
+    }
+
+    public Long getSeedId() {
+        return seedId;
+    }
+
+    public void setSeedId(Long seedId) {
+        this.seedId = seedId;
     }
 
     public String getSeedName() {

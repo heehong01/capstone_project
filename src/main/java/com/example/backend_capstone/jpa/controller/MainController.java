@@ -41,6 +41,8 @@ public class MainController {
         return "html/LoginPage";
     }
 
+
+
     @GetMapping("/user")
     public String userIndex() {
         return "user/index";
