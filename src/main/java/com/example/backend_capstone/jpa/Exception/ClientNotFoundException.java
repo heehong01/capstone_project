@@ -1,4 +1,4 @@
-package com.example.backend_capstone.jpa.service.Client;
+package com.example.backend_capstone.jpa.Exception;
 
 public class ClientNotFoundException extends RuntimeException{
 }
