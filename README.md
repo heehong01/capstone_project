@@ -17,24 +17,33 @@ Add some description of the app (one or two paragraph)
 
 
 ## Daily Progress
-- 4/1-4/14: (50% completed)
-  - Implementation of CRUD operations on Registration and Create Garden
-- 4/15: (55-60% completed)
-  - Completion of CRUD operations
 
+- 4/21: (78% Completed)
+    - Turned off spring security and implemented admin pages
+  ######
+- 4/22 (80% completed)
+  - Implementation of sessions with logging in
+  - Finished implementation of pulling the logged in user information and gardens that are tied with them
+  - Connected the user and gardens that they created
+  ######
+- 4/20 (76% Completed)
+  - Troubleshooting issues with a CRUD function not working with Spring Security
+######
+- 4/19: (75% completed)
+    - Troubleshooting GitHub issues with branches not merged properly to master before branching again
+#####
 - 4/18: (70% completed)
     - Implementation of Spring Security
     - Troubleshooting issues with Spring Security with JS and CSS
     - Troubleshooting issues with Spring Security Registration Page
-  
-- 4/19: (75% completed)
-  - Troubleshooting GitHub issues with branches not merged properly to master before branching again
-  
-- 4/20 (76% Completed)
-  - Troubleshooting issues with a CRUD function not working with Spring Security
-  
-- 4/21: (78% Completed)
-  - Turned off spring security and implemented admin pages
+#####
+- 4/15: (55-60% completed)
+    - Completion of CRUD operations
+  #####
+- 4/1-4/14: (50% completed)
+    - Implementation of CRUD operations on Registration and Create Garden
+
+
     
 
 
@@ -85,4 +94,5 @@ Add some description of the app (one or two paragraph)
 - Implementation of user to have a description/review of the garden that they have tried
 - Implementation of Mobile option 
 - Implementation of Mobile Application
+- Implement vue/react etc so that navigation bar is not duplicated among all of the html pages
 - 
