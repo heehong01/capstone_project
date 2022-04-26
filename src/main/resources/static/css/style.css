@@ -81,6 +81,10 @@ img{
 
 }
 
+a.actionButton{
+    padding: 0.5rem 2rem;
+}
+
 .btn {
     color: white;
     background-color: #6FAA63;

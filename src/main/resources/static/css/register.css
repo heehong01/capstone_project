@@ -17,7 +17,7 @@ body{
 }
 .register-main-right{
     display: inline-block;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 160px);
     margin: 0;
     align-content: center;
     background-color: #6FAA63;
@@ -130,3 +130,18 @@ a{
 .form button:hover{
     background-color: #EEBB4D;
 }
+
+div.input-group.form-control.checkboxdiv{
+    display: flex;
+    font-size: smaller;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+input#terms{
+    margin-right: 2rem;
+    padding-bottom: 1rem;
+    width: auto;
+    padding-top: 1rem;
+}
+
