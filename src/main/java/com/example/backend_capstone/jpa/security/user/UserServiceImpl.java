@@ -1,4 +1,4 @@
-package com.example.backend_capstone.jpa.user;
+package com.example.backend_capstone.jpa.security.user;
 
 import com.example.backend_capstone.jpa.DTO.UserRegistrationDTO;
 import com.example.backend_capstone.jpa.security.Role;
@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,6 +29,10 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
     public User findByEmail(String email){
         return userRepository.findByEmail(email);
     }
@@ -36,15 +41,25 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setFirstName(registration.getFirstName());
         user.setLastName(registration.getLastName());
+        user.setUsername(registration.getUsername());
         user.setEmail(registration.getEmail());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
+        if(user.getUsername().contains("admin") && user.getEmail().contains("admin@gamil.com")){
+            user.setRoles(Arrays.asList(new Role("ROLE_ADMIN")));
+        }
         user.setRoles(Arrays.asList(new Role("ROLE_USER")));
         return userRepository.save(user);
     }
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email);
+    public List<User> getAllUser() {
+        return userRepository.findAll();
+    }
+
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUsername(username);
         if (user == null){
             throw new UsernameNotFoundException("Invalid username or password.");
         }
