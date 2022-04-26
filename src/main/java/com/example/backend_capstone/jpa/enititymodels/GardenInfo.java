@@ -8,7 +8,7 @@ public class GardenInfo {
 
     @Id
     @Column(name = "garden_name_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long gardenNameId;
 
     @Column(name="garden_name")
