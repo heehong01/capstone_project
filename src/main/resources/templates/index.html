@@ -1,65 +1,93 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 
-    <link rel="stylesheet" type="text/css"
-          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <!-- INTERNAL CSS STYLING -->
+    <style>
+        img{
+            max-width: 30px;
+            max-height: 30px;
+        }
+    </style>
 
-    <title>Registration</title>
 </head>
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<body class="full-height-grow">
+<!-- Navigation Bar -->
+<header class="main-header">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span> <span
-                    class="icon-bar"></span> <span class="icon-bar"></span> <span
-                    class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Registration and
-                Login Module</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <a class="brand-logo" th:href="@{/}">
+            <img src="images/logo.jpg" alt="logo">
+        </a>
+        <nav class="main-nav">
             <ul class="nav navbar-nav">
+                <li><a th:href="@{/main}">Home</a></li>
+                <li><a th:href="@{/create_garden}">Garden</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Useful Info</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{/garden/how_to_germinate_seeds}">How to germinate your seeds</a>
+                        <a class="dropdown-item" href="#">Customize Garden</a>
+                    </div>
+                </li>
+
+                <li><a th:href="@{/about_us}">About Us</a></li>
+                <li class="dropdown" sec:authorize="isAuthenticated()">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account</a>
+                    <div class="dropdown-menu">
+                        <a th:href="@{/myPage}" class="dropdown-item">My Account</a>
+                        <a th:href="@{/myGardens}" class="dropdown-item">My Gardens</a>
+                    </div>
+                </li>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></li>
                 <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
             </ul>
-        </div>
+        </nav>
     </div>
-</nav>
+</header>
 
-<br>
-<br>
-<div class="container">
-    <h2>com.example.demo.security.SecurityUser Registration and Login Module using Spring Boot, Spring
-        MVC, Spring Security, JPA/Hibernate and Thymeleaf</h2>
 
-    <p>
-        Welcome <span sec:authentication="principal.username">com.example.demo.security.SecurityUser</span>
-    </p>
-</div>
-
+<!-- Main Body -->
 <section class="home-main-section">
     <div class="home-main-section-left">
-        <h1 class="title">City Scape Gardens</h1>
+        <h1 class="title">Anakainosis</h1>
         <span class="subtitle">Creating a sustainable food source that fits your lifestyle</span>
     </div>
     <div class="home-main-section-right">
-        <a th:href="@{/main}" class="btn">WELCOME</a>
+        <a th:href="@{/login}" class="btn">WELCOME</a>
     </div>
 </section>
 
-<script type="text/javascript"
-        th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
-<script type="text/javascript"
-        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="container">
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#" class="social-link"><i class="bi bi-facebook"></i>Facebook</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-pinterest"></i>Pinterest</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-twitter"></i>Twitter</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-youtube"></i>Youtube</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-linkedin"></i>Linkedin</a></li>
+            </ul>
+        </nav>
+        <nav class="footer-nav">
+            <ul>
+                <li><a th:href="@{/contact}">Contact</a></li>
+            </ul>
+        </nav>
 
+    </div>
+
+
+
+</footer>
 </body>
 </html>
-
