@@ -2,8 +2,7 @@ package com.example.backend_capstone.jpa.service.GardenInfo;
 
 import com.example.backend_capstone.jpa.enititymodels.GardenInfo;
 import com.example.backend_capstone.jpa.repository.GardenInfoRepository;
-import com.example.backend_capstone.jpa.service.GardenInfo.GardenInfoNotFoundException;
-import com.example.backend_capstone.jpa.service.GardenInfo.GardenInfoService;
+import com.example.backend_capstone.jpa.Exception.GardenInfoNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +29,10 @@ public class GardenInfoServiceImpl implements GardenInfoService {
             throw new GardenInfoNotFoundException();
         }
         return garden;
+    }
+
+    @Override
+    public void deleteGardenInfoById(Long id) {
+        this.gardenInfoRepository.deleteById(id);
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 public interface GardenInfoService {
     List<GardenInfo> getAllGardenInfo();
     GardenInfo getGardenInfoById(long gardenInfoId);
-
+    void deleteGardenInfoById(Long id);
 }
