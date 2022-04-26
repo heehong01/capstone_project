@@ -1,4 +1,4 @@
-package com.example.backend_capstone.jpa.controller.user;
+package com.example.backend_capstone.jpa.security.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,5 +9,5 @@ public class UserLoginController {
     @GetMapping("/login")
     public String login(Model model) {
             return "html/LoginPage";
-            }
+    }
 }
