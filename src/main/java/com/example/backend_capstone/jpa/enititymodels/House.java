@@ -7,13 +7,13 @@ import javax.persistence.*;
 public class House {
     @Id
     @Column(name = "house_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long houseId;
 
     @Column(name="house_name")
     private String houseName;
 
-    @Column(name="house_")
+    @Column(name="house_description")
     private String houseDescription;
 
     public House(){
