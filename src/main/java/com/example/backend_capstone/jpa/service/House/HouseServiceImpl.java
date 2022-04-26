@@ -1,5 +1,6 @@
 package com.example.backend_capstone.jpa.service.House;
 
+import com.example.backend_capstone.jpa.Exception.HouseNotFoundException;
 import com.example.backend_capstone.jpa.enititymodels.House;
 import com.example.backend_capstone.jpa.repository.HouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    public List<House> getAllHouseInfo() {
+    public List<House> getAllHouse() {
         return houseRepository.findAll();
     }
 
@@ -28,5 +29,15 @@ public class HouseServiceImpl implements HouseService {
             throw new HouseNotFoundException();
         }
         return house;
+    }
+
+    @Override
+    public void deleteHouseById(long id) {
+        this.houseRepository.deleteById(id);
+    }
+
+    @Override
+    public void saveHouse(House house) {
+        this.houseRepository.save(house);
     }
 }

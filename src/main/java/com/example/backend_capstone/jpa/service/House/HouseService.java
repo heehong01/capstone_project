@@ -6,6 +6,8 @@ import com.example.backend_capstone.jpa.enititymodels.House;
 import java.util.List;
 
 public interface HouseService {
-    List<House> getAllHouseInfo();
+    List<House> getAllHouse();
     House getHouseById(long houseId);
+    void deleteHouseById(long id);
+    void saveHouse(House house);
 }
