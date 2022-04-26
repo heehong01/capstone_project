@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "client")
@@ -27,9 +28,6 @@ public class Client {
     @Column(name="password", nullable=false)
     private String password;
 
-    @Column(name="password2", nullable=false)
-    private String password2;
-
     @Column(name="email", nullable = false)
     private String email;
 
@@ -44,13 +42,12 @@ public class Client {
         this.userGardens = new ArrayList<>();
     }
 
-    public Client(Long clientId, String firstName, String lastName, String username, String password, String password2, String email, List<Garden> userGardens) {
+    public Client(Long clientId, String firstName, String lastName, String username, String password, String email, List<Garden> userGardens) {
         this.clientId = clientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
-        this.password2 = password2;
         this.email = email;
         this.userGardens = userGardens;
     }
@@ -95,14 +92,6 @@ public class Client {
         this.password = password;
     }
 
-    public String getPassword2() {
-        return password2;
-    }
-
-    public void setPassword2(String password2) {
-        this.password2 = password2;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -117,6 +106,19 @@ public class Client {
 
     public void setUserGardens(List<Garden> userGardens) {
         this.userGardens = userGardens;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(clientId, client.clientId) && Objects.equals(firstName, client.firstName) && Objects.equals(lastName, client.lastName) && Objects.equals(username, client.username) && Objects.equals(password, client.password) && Objects.equals(email, client.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clientId, firstName, lastName, username, password, email);
     }
 }
 
