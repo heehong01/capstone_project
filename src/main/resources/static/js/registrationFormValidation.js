@@ -5,7 +5,8 @@ const lastname = document.getElementById('lastName')
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
+const password2 = document.getElementById('conformPassword');
+const checkedTerms = document.getElementById('terms')
 
 
 submitBtn.addEventListener('click', e => {
@@ -29,16 +30,29 @@ function checkInputs() {
     let passwordValueValid = validPassword(passwordValue);
     let password2ValueValid = validPassword(password2Value);
     let bothPasswordMatch = matchPassword(passwordValue, password2Value);
+    let checkedTermsTrue = isCheckedTerms();
 
 
     if(firstNameInputValid && lastNameInputValid
         && usernameInputValid && emailInputValid
         && passwordValueValid && password2ValueValid
-        && bothPasswordMatch){
+        && bothPasswordMatch && checkedTermsTrue){
         return true;
     }
 
     return false;
+}
+
+function isCheckedTerms(){
+    const checkedTermsValue = checkedTerms;
+    if(checkedTermsValue.checked){
+        return setSuccessFor(checkedTerms);
+    }
+    else{
+        console.log("ERROR you did not check the terms and conditions!");
+        alert("ERROR you did not check the terms and conditions!")
+        return false;
+    }
 }
 
 function validFirstName(){
