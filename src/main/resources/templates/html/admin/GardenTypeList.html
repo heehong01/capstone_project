@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Garden Type List</title>
+</head>
+<body class="full-height-grow">
+<!-- Navigation Bar -->
+<header class="main-header">
+    <div class="container">
+        <a class="brand-logo" th:href="@{/}">
+            <img src="images/logo.jpg" alt="logo">
+        </a>
+        <nav class="main-nav">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/main}">Home</a></li>
+                <li><a th:href="@{/create_garden}">Garden</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Useful Info</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{/garden/how_to_germinate_seeds}">How to germinate your seeds</a>
+                        <a class="dropdown-item" href="#">Customize Garden</a>
+                    </div>
+                </li>
+
+                <li><a th:href="@{/about_us}">About Us</a></li>
+                <li class="dropdown" sec:authorize="isAuthenticated()">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account</a>
+                    <div class="dropdown-menu">
+                        <a th:href="@{/myPage}" class="dropdown-item">My Account</a>
+                        <a th:href="@{/myGardens}" class="dropdown-item">My Gardens</a>
+                    </div>
+                </li>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="container my-2">
+    <h1>Garden Type List</h1>
+
+    <a th:href="@{/createGardenType}" class="btn btn-primary btn-sm mb-3"> Create Garden Type </a>
+
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Garden Type ID</th>
+            <th>Garden Type Name</th>
+            <th>Garden Type Description</th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="gardenType : ${listGardenType}">
+            <td th:text="${gardenType.gardenNameId}"></td>
+            <td>USER ID</td>
+            <td th:text="${gardenType.gardenName}"></td>
+            <td th:text="${gardenType.gardenDescription}"></td>
+            <td> <a href="@{/updateGardenType/{id}(id=${gardenType.gardenNameId})}" class="btn btn-primary">Update</a>
+                <a href="#@{/deleteGardenType/{id}(id=${gardenType.gardenNameId})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="container">
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#" class="social-link"><i class="bi bi-facebook"></i>Facebook</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-pinterest"></i>Pinterest</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-twitter"></i>Twitter</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-youtube"></i>Youtube</a></li>
+                <li><a href="#" class="social-link"><i class="bi bi-linkedin"></i>Linkedin</a></li>
+            </ul>
+        </nav>
+        <nav class="footer-nav">
+            <ul>
+                <li><a th:href="@{/contact}">Contact</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+
+
+</footer>
+</body>
+</html>
