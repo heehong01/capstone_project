@@ -11,7 +11,7 @@ public class Seeds {
 
     @Id
     @Column(name = "seed_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long seedId;
 
     @Column(name="seed_name")
