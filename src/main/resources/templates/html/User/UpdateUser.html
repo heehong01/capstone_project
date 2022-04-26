@@ -33,18 +33,25 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Useful Info</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" th:href="@{/garden/how_to_germinate_seeds}">How to germinate your seeds</a>
-                        <a class="dropdown-item" href="#">Something here</a>
-                        <a class="dropdown-item" href="#">Another here</a>
-                        <a class="dropdown-item" href="#">Else here</a>
+                        <a class="dropdown-item" href="#">Customize Garden</a>
                     </div>
                 </li>
 
                 <li><a th:href="@{/about_us}">About Us</a></li>
-                <li><a th:href="@{/login}">Login</a></li>
+                <li class="dropdown" sec:authorize="isAuthenticated()">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account</a>
+                    <div class="dropdown-menu">
+                        <a th:href="@{/myPage}" class="dropdown-item">My Account</a>
+                        <a th:href="@{/myGardens}" class="dropdown-item">My Gardens</a>
+                    </div>
+                </li>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </nav>
     </div>
 </header>
+
 
 <!-- Main Body -->
 <section class="register-main-section main-section">
