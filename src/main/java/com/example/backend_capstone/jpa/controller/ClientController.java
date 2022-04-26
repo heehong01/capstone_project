@@ -24,41 +24,8 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-//SHOW NEW EMPLOYEE FORM
-    @GetMapping("/registerForm")
-    public String showRegistrationForm(Model model) {
-        // create model attribute to bind form data
-        Client client = new Client();
-        model.addAttribute("user", client);
-        return "html/RegistrationPage";
-    }
 
-    @GetMapping("/Userlogin")
-    public String showLoginForm(Model model) {
-        // create model attribute to bind form data
-        Client client = new Client();
-        model.addAttribute("user", client);
-        return "html/LoginPage";
-    }
-//SAVE EMPLOYEE
-    @PostMapping("/registerUser")
-    public String saveEmployee(@ModelAttribute("user") @Valid Client client,
-                               BindingResult bindingResult) {
 
-        if (bindingResult.hasErrors()) {
-            return "html/RegistrationPage";
-        }
-
-        // save employee to database
-        clientService.saveUser(client);
-        return "redirect:/UserList";
-    }
-
-    @GetMapping("/UserList")
-    public String getAllEmployees(Model model) {
-        model.addAttribute("listUser", clientService.getAllUsers());
-        return "html/UserList";
-    }
 
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {

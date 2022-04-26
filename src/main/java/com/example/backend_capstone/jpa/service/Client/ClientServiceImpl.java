@@ -3,14 +3,14 @@ package com.example.backend_capstone.jpa.service.Client;
 import com.example.backend_capstone.jpa.enititymodels.Client;
 import com.example.backend_capstone.jpa.enititymodels.Garden;
 import com.example.backend_capstone.jpa.repository.ClientRepository;
-import com.example.backend_capstone.jpa.service.Client.ClientNotFoundException;
-import com.example.backend_capstone.jpa.service.Client.ClientService;
+import com.example.backend_capstone.jpa.Exception.ClientNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -70,8 +70,11 @@ public class ClientServiceImpl implements ClientService {
         return client.getUserGardens();
     }
 
+
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return null;
     }
+
 }
