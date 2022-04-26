@@ -11,20 +11,21 @@ import java.util.Objects;
 public class Garden {
     @Id
     @Column(name="garden_id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long gardenId;
 
     @Column(name="garden_name")
     private String gardenName;
 
-    @Column(name="house_type")
-    private String houseType;
+    @ManyToOne(targetEntity = House.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "house_type_id", referencedColumnName = "house_id")
+    private House houseType;
 
     @ManyToOne(targetEntity =GardenInfo.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "garden_type_id", referencedColumnName = "garden_name_id")
     private GardenInfo gardenType;
 
-    @ManyToMany(targetEntity = Seeds.class, cascade = {CascadeType.ALL})
+    @ManyToMany(targetEntity = Seeds.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name="seeds_to_plant",
             joinColumns = @JoinColumn(name="seed_id"),
             inverseJoinColumns = @JoinColumn(name="gardenId"))
@@ -36,7 +37,7 @@ public class Garden {
         this.gardenName = "";
     }
 
-    public Garden(long gardenId, String gardenName, String houseType, GardenInfo gardenType, List<Seeds> seedType) {
+    public Garden(long gardenId, String gardenName, House houseType, GardenInfo gardenType, List<Seeds> seedType) {
         this.gardenId = gardenId;
         this.gardenName = gardenName;
         this.houseType = houseType;
@@ -60,11 +61,11 @@ public class Garden {
         this.gardenName = gardenName;
     }
 
-    public String getHouseType() {
+    public House getHouseType() {
         return houseType;
     }
 
-    public void setHouseType(String houseType) {
+    public void setHouseType(House houseType) {
         this.houseType = houseType;
     }
 
