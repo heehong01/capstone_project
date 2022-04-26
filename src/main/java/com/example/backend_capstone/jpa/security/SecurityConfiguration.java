@@ -1,6 +1,6 @@
 package com.example.backend_capstone.jpa.security;
 
-import com.example.backend_capstone.jpa.user.UserService;
+import com.example.backend_capstone.jpa.security.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,8 +26,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 //create a .antMatchers that will have admin and user privileges
-                .antMatchers("/auth/admin/*").hasRole("ADMIN")
-                .antMatchers("/auth/*").hasAnyRole("ADMIN","USER")
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                //.antMatchers("/**").hasAnyRole("ADMIN","USER")
                 .antMatchers(
                         "/registration**",
                         "/static/**",
@@ -41,6 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/myPage")
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
