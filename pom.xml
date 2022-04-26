@@ -121,6 +121,11 @@
             <version>0.1.10</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
