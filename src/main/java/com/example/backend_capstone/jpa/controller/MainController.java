@@ -26,5 +26,14 @@ public class MainController {
         return "user/index";
     }
 
+    @GetMapping("/garden/how_to_germinate_seeds")
+    public String showGerminateSeedPage(){
+        return "html/howToStartPlanting";
+    }
+
+    @GetMapping("/contact")
+    public String showContactUsPage(){
+        return "html/Contact";
+    }
 }
 

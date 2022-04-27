@@ -35,4 +35,9 @@ public class GardenInfoServiceImpl implements GardenInfoService {
     public void deleteGardenInfoById(Long id) {
         this.gardenInfoRepository.deleteById(id);
     }
+
+    @Override
+    public void saveGardenInfo(GardenInfo gardenInfo) {
+        this.gardenInfoRepository.save(gardenInfo);
+    }
 }

@@ -34,8 +34,8 @@ public class Client {
 
     @OneToMany(targetEntity = Garden.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name="User_Gardens",
-            joinColumns = @JoinColumn(name="garden_id"),
-            inverseJoinColumns = @JoinColumn(name="user_id"))
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="garden_id"))
     private List<Garden> userGardens;
 
     public Client(){

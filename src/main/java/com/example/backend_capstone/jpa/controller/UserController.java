@@ -38,26 +38,4 @@ public class UserController {
         return "/html/User/MyPage";
     }
 
-    @GetMapping("/myGardens")
-    public String showUsersGardens(Principal principal, Model model){
-        String email = principal.getName();
-        User user = userService.findByEmail(email);
-        Long id = user.getId();
-        Client client = clientService.getUserById(id);
-        List<Garden> gardenList = client.getUserGardens();
-        model.addAttribute("gardenList", gardenList);
-        List<String> stringValOfSeedList = new ArrayList<>();
-        for(Garden garden: gardenList){
-            String value = "";
-            List<Seeds> seedsList =  garden.getSeedType();
-            for(Seeds seed: seedsList){
-                value += (seed.getSeedName() + "\n");
-            }
-            stringValOfSeedList.add(value);
-            value = "";
-        }
-        model.addAttribute("seedList", stringValOfSeedList);
-
-        return "html/User/MyGardenList";
-    }
 }

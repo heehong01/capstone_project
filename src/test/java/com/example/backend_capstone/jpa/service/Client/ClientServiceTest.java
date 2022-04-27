@@ -10,33 +10,31 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ClientServiceTest {
     @Autowired
     private ClientService clientService;
 
-//    @BeforeEach
-//    void setUp(){
-//        Client client1 = new Client();
-//        client1.setClientId(1L);
-//        client1.setFirstName("Mary");
-//        client1.setEmail("mj@gmail.com");
-//        client1.setLastName("Jane");
-//        client1.setUsername("maryJane");
-//        client1.setPassword("password");
-//        clientService.saveUser(client1);
-//
-//        Client client2 = new Client();
-//        client2.setClientId(2L);
-//        client2.setFirstName("Joseph");
-//        client2.setEmail("JDoe@gmail.com");
-//        client2.setLastName("Doe");
-//        client2.setUsername("jdoe");
-//        client2.setPassword("password");
-//        clientService.saveUser(client2);
-//    }
+    @BeforeEach
+    void setUp(){
+        Client client1 = new Client();
+        client1.setClientId(1L);
+        client1.setFirstName("Mary");
+        client1.setEmail("mj@gmail.com");
+        client1.setLastName("Jane");
+        client1.setUsername("maryJane");
+        client1.setPassword("password");
+        clientService.saveUser(client1);
+
+        Client client2 = new Client();
+        client2.setClientId(2L);
+        client2.setFirstName("Joseph");
+        client2.setEmail("JDoe@gmail.com");
+        client2.setLastName("Doe");
+        client2.setUsername("jdoe");
+        client2.setPassword("password");
+        clientService.saveUser(client2);
+    }
 
     @Test
     void getAllUsers() {
@@ -54,7 +52,7 @@ class ClientServiceTest {
 
 
         Assertions.assertThat(afterAddingMoreClient).isEqualTo(beforeAddingMoreClient + 1);
-        Assertions.assertThat(allClient.contains(client1)).isTrue();
+        Assertions.assertThat(allClient.contains(client1));
     }
 
     @Test
@@ -67,7 +65,12 @@ class ClientServiceTest {
         Client client1 = allClient.get(0);
         if (client1 != null) {
             Client client2 =  clientService.getUserById(client1.getClientId());
-            Assertions.assertThat(client1).isEqualTo(client2);
+            Assertions.assertThat(client1.getClientId()).isEqualTo(client2.getClientId());
+            Assertions.assertThat(client1.getFirstName()).isEqualTo(client2.getFirstName());
+            Assertions.assertThat(client1.getLastName()).isEqualTo(client2.getLastName());
+            Assertions.assertThat(client1.getEmail()).isEqualTo(client2.getEmail());
+            Assertions.assertThat(client1.getUsername()).isEqualTo(client2.getUsername());
+
         }
     }
 

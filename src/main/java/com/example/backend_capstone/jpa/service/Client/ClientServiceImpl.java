@@ -9,8 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -49,7 +48,10 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public void saveGardenToUser(long user_id, Garden garden) {
         Client client = getUserById(user_id);
-        List<Garden> userGardens = getGardenByUser(user_id);
+        Set<Garden> userGardens = new HashSet<Garden>();
+        for(Garden garden1: getGardenByUser(user_id)){
+            userGardens.add(garden1);
+        }
         boolean isInGardenList = false;
         for(Garden gardenCheck : userGardens){
             if(gardenCheck.getGardenId() == garden.getGardenId()){
@@ -57,9 +59,13 @@ public class ClientServiceImpl implements ClientService {
                 break;
             }
         }
+        List<Garden> userGarden = new ArrayList<>();
+        for(Garden garden1: userGardens){
+            userGarden.add(garden1);
+        }
         if(!isInGardenList){
-            userGardens.add(garden);
-            client.setUserGardens(userGardens);
+            userGarden.add(garden);
+            client.setUserGardens(userGarden);
             saveUser(client);
         }
     }
@@ -70,6 +76,11 @@ public class ClientServiceImpl implements ClientService {
         return client.getUserGardens();
     }
 
+    @Override
+    public List<Garden> deleteGardenByUser(long userId) {
+        Client client = getUserById(userId);
+        return null;
+    }
 
 
     @Override

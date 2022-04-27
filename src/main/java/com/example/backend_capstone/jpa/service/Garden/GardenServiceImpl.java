@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class GardenServiceImpl implements GardenService {
@@ -39,6 +40,11 @@ public class GardenServiceImpl implements GardenService {
     @Override
     public void deleteGardenById(long gardenId) {
         this.gardenRepository.deleteById(gardenId);
+    }
+
+    @Override
+    public List<Garden> getDistinctByGardenId(Long id) {
+        return gardenRepository.getDistinctByGardenId(id);
     }
 
 }
