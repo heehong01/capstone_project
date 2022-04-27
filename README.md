@@ -11,7 +11,7 @@ Add some description of the app (one or two paragraph)
     - [User](#User)
     - [Admin](#Admin)
 - [Technical architecture](TechnicalArchitecture.png)
-- [Technical challenegs addressed](#Technical-challenges)
+- [Technical challenges addressed](#Technical-challenges)
 - [Lessons learned from this project](#Lessons-learned)
 - [Future improvements](#Future-improvements)
 - [Wire frame](https://www.figma.com/file/68XBs5Bt57vc1ILSNEkVEs/Anakinosis?node-id=0%3A1)
@@ -117,7 +117,7 @@ Add some description of the app (one or two paragraph)
 ## Technical architecture
 ![](TechnicalArchitecture.png)
 
-## Technical challenges addressed
+## Technical challenges
 - Front End - UI/UX layout of HTML pages
 - Issues with Join tables in database
 - Spring Security Connectivity Issues
