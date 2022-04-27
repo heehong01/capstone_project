@@ -4,12 +4,12 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
-    <title>Garden Creation Page</title>
+    <title>Garden Update Page</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/create.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/create.css}">
     <style>
         img{
             max-width: 30px;
@@ -53,13 +53,13 @@
 
 <!-- Main Body -->
 <section class="main-section">
-    <form id="regForm" th:action="@{/create_garden}" th:object="${garden}" method="post">
+    <form id="regForm" th:action="@{/updateGarden}" th:object="${garden}" method="post">
 
         <h1>Customize your Garden:</h1>
-
+        <input type="hidden" th:field="${garden.gardenId}">
         <!-- One "tab" for each step in the form: -->
         <div class="tab">What type of house do you live in?:
-            <div th:each="name, index : ${house}">
+            <div th:each="name : ${house}">
                 <p th:text="${name.houseName}"></p>
                 <input type="radio" th:name="houseId" th:value="${name.houseId}">
             </div>

@@ -78,9 +78,9 @@
       </td>
       <td>
         <p></p>
-        <a href="#" class="actionButton btn btn-primary">Update</a>
+        <a th:href="@{/updateGarden/{id}(id=${garden.gardenId})}" class="actionButton btn btn-primary">Update</a>
         <p></p>
-        <a href="#" class="actionButton btn btn-danger">Delete</a>
+        <a th:href="@{/deleteGarden/{id}(id=${garden.gardenId})}" class="actionButton btn btn-danger">Delete</a>
         <p></p>
       </td>
     </tr>
